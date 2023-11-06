@@ -1,0 +1,52 @@
+﻿@model IEnumerable<UserTask>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ваши задачи</h1>
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2>Список задач</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="UserTask" asp-action="Create" class="btn btn-dark">
+                <i class="bi bi-clipboard2-plus"></i> &nbsp; Создать задачу
+            </a>
+        </div>
+
+    </div>
+
+<table class="table table-bordered table-striped" style="width:100%">
+   
+    <tbody>
+            @foreach (var task in Model.OrderBy(x=>x.Id).Select((value, index) => new { Value = value, Index = index }))
+            {
+                <tr>
+                    <td width="2%">@(task.Index + 1))</td>
+                    <td>@task.Value.Name</td>
+                    <td>
+                        <form asp-controller="UserTask" asp-action="CompleteTask" asp-route-id="@task.Value.Id" >
+                            <button class="btn btn-secondary">Выполнить</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a asp-controller="UserTask" asp-action="Edit" asp-route-id="@task.Value.Id" class="btn btn-light" style="color:black; float:right">
+                    <i class="bi bi-pencil-square"></i>Редактировать</a>
+                    </td>
+                    <td width="2%">
+                        <form asp-controller="UserTask" asp-action="Delete" asp-route-id="@task.Value.Id" method="post" style="float:right" onsubmit="return confirm('Вы уверены, что хотите удалить эту задачу?')">
+                <button type="submit" class="btn btn-danger">Удалить</button>
+            </form>
+                    </td >
+                    
+                    
+                   
+                </tr>
+                <tr>
+                    <td colspan="4">@task.Value.Description</td>
+                </tr>
+            }
+    </tbody>
+</table>
+</div>
