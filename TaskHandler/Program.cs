@@ -4,6 +4,7 @@ using MetersReader.Repository.Contracts;
 using MetersReader.Services;
 using MetersReader.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Policy;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,5 +37,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=UserTask}/{action=Index}/{id?}");
+   
 
 app.Run();

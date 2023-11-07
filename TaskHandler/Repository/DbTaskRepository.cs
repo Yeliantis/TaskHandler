@@ -19,6 +19,7 @@ namespace MetersReader.Repository
             if (task != null && task.isDone==false) 
             {
                 task.isDone = true;
+                task.DateFinished= DateTime.Now;
                 _context.Update(task);
                 await _context.SaveChangesAsync();
             }
@@ -32,7 +33,7 @@ namespace MetersReader.Repository
                 Name = userTask.Name,
                 Description = userTask.Description,
                 isDone = false,
-                DateCreated = DateTime.Now.ToUniversalTime()
+                DateCreated = DateTime.Now
             };
             await _context.Tasks.AddAsync(task);
             await _context.SaveChangesAsync();

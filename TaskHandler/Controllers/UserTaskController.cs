@@ -13,11 +13,21 @@ namespace MetersReader.Controllers
         {
             _taskService = taskService;
         }
+
+        
+      
         public async Task<IActionResult> Index()
         {
             var tasks = await _taskService.GetAllTaskAsync();
-            var result = tasks.Where(x=>x.isDone==false).ToList();
-            return View(result);
+            
+
+            return View(tasks);
+        }
+
+        public async Task<IActionResult> Completed()
+        {
+            var tasks = await _taskService.GetAllTaskAsync();
+            return View(tasks);
         }
 
         public  IActionResult Create()

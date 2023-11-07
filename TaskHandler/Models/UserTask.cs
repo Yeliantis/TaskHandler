@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MetersReader.Models
 {
@@ -18,7 +20,9 @@ namespace MetersReader.Models
         
         public string? Description { get; set; } = string.Empty;
         public bool isDone { get; set; }
-
+        [Column(TypeName = "timestamp without time zone")]
         public DateTime DateCreated { get; set; }
+        [Column(TypeName = "timestamp without time zone")]
+        public DateTime? DateFinished { get; set; }
     }
 }
