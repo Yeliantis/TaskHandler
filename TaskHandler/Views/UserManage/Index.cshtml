@@ -1,0 +1,45 @@
+﻿@using TaskHandler.Models
+
+@model IEnumerable<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+
+
+
+
+<h1>Список пользователей</h1>
+<div class="container p-3">
+
+    
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Email</th></div>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr style="border-bottom: 1px solid #ddd">
+                <td>@item.Email</td>
+                <td>@item.PhoneNumber</td>
+                
+            <td>
+                <form asp-controller="UserTask" asp-action="Delete" method="post" style="float:right" onsubmit="return confirm('Вы уверены, что хотите удалить эту задачу?')">
+                    <button type="submit" class="btn btn-danger">Удалить</button>
+                </form>
+            </td>
+            </tr>
+        
+            
+        </tbody>
+    }
+    
+</table>
+</div>
+

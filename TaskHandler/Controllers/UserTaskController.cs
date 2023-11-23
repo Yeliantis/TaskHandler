@@ -2,7 +2,9 @@
 using MetersReader.Models;
 using MetersReader.Services;
 using MetersReader.Services.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TaskHandler.Roles;
 
 namespace MetersReader.Controllers
 {
@@ -14,8 +16,11 @@ namespace MetersReader.Controllers
             _taskService = taskService;
         }
 
-        
-      
+        public IActionResult HomePage()
+        {
+            return View();
+        }
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var tasks = await _taskService.GetAllTaskAsync();
@@ -24,6 +29,7 @@ namespace MetersReader.Controllers
             return View(tasks);
         }
 
+        
         public async Task<IActionResult> Completed()
         {
             var tasks = await _taskService.GetAllTaskAsync();
@@ -90,7 +96,7 @@ namespace MetersReader.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var task = await _taskService.DeleteTaskAsync(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("Completed");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskHandler", "TaskHandler\TaskHandler.csproj", "{749598B7-10E7-41C9-B170-D12D0152C33E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskHandler.Infrastructure", "TaskHandler.Models\TaskHandler.Infrastructure.csproj", "{A117DECB-FA9A-4636-AF7E-2DF4FB5C3DB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{749598B7-10E7-41C9-B170-D12D0152C33E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{749598B7-10E7-41C9-B170-D12D0152C33E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{749598B7-10E7-41C9-B170-D12D0152C33E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A117DECB-FA9A-4636-AF7E-2DF4FB5C3DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A117DECB-FA9A-4636-AF7E-2DF4FB5C3DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A117DECB-FA9A-4636-AF7E-2DF4FB5C3DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A117DECB-FA9A-4636-AF7E-2DF4FB5C3DB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

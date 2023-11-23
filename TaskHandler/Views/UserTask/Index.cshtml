@@ -22,7 +22,7 @@
 
     </div>
 
-<table class="table table-bordered table-striped" style="width:100%">
+ <table class="table table-bordered table-striped" style="width:100%">
    
     <tbody>
             @foreach (var task in Model.OrderBy(x=>x.Id).Where(p=>p.isDone==false).Select((value, index) => new { Value = value, Index = index }))
