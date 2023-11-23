@@ -29,7 +29,7 @@ namespace MetersReader.Controllers
             return View(tasks);
         }
 
-        
+        [Authorize]
         public async Task<IActionResult> Completed()
         {
             var tasks = await _taskService.GetAllTaskAsync();
